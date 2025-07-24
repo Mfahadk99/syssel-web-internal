@@ -1,0 +1,44 @@
+{
+    "overrides": [
+        {
+            "date": "2025-06-30",
+            "isWorking": true,
+            "startTime": "06:00",
+            "endTime": "18:00"
+        },
+        {
+            "date": "2025-07-01",
+            "isWorking": true,
+            "startTime": "10:00",
+            "endTime": "18:00"
+        },
+        {
+            "date": "2025-07-02",
+            "isWorking": true,
+            "startTime": "10:00",
+            "endTime": "18:00"
+        },
+        {
+            "date": "2025-07-03",
+            "isWorking": true,
+            "startTime": "10:00",
+            "endTime": "18:00"
+        },
+        {
+            "date": "2025-07-04",
+            "isWorking": true,
+            "startTime": "10:00",
+            "endTime": "18:00"
+        },
+        {
+            "date": "2025-07-05",
+            "isWorking": false
+        },
+        {
+            "date": "2025-07-06",
+            "isWorking": true,
+            "startTime": "10:00",
+            "endTime": "18:00"
+        }
+    ]
+}
