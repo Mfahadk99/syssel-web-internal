@@ -1,0 +1,500 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7f4665;
+  --color-primary-hover: #6f3d59;
+  --color-secondary: #3d2030;
+  --color-tertiary: #d4b0c3;
+  --color-gradientlight: #d5bcca;
+  --color-gradientdark: #643f53;
+  --color-skin: #f2e2d4f7;
+  --color-skin2: #f2e2d400;
+  --color-background: #fbf2ec;
+  --color-brown: #433128;
+  --color-goldenNormal: #D9CBB8;
+  --color-error-dark: #932920;
+  --color-error-darker: #641e16;
+  --color-error-light: #EDC1BD;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--color-primary);
+}
+
+body {
+  font-family: var(--font-cabin), sans-serif;
+  background-color: var(--color-background);
+}
+
+@layer utilities {
+  .inner-shadow-thin {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .inner-shadow-thick {
+    box-shadow: inset 8px 8px 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+.custom-dashed-border {
+  border-width: 2px;
+  border-style: dashed;
+  border-image: repeating-linear-gradient(
+    to right,
+    black 0,
+    black 5px,
+    transparent 5px,
+    transparent 15px
+  );
+  border-image-slice: 1;
+}
+
+.custom-dashed-border-thin {
+  border-width: 1px;
+  border-style: dashed;
+  border-image: repeating-linear-gradient(
+    to right,
+    black 0,
+    black 2px,
+    transparent 2px,
+    transparent 10px
+  );  
+  border-image-slice: 1;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.circle-progress {
+  background: conic-gradient(
+    from 180deg,
+    #ffffff00 10%,
+    /* #ffffff81 20%, */
+    rgba(127, 70, 101, 0.3) 40%,
+    rgba(127, 70, 101, 0.6) 60%,
+    rgba(127, 70, 101, 0.8) 80%,
+    #7f4665 100%
+  );
+}
+
+.options-border {
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  border-top-right-radius: 0.7rem;
+  border-bottom-right-radius: 0.7rem;
+}
+
+/* For WebKit (Chrome, Safari, Edge) */
+.scrollbar-design::-webkit-scrollbar {
+  width: 4px; /* Thin scrollbar */
+  height: 4px; /* For horizontal scroll */
+}
+
+.scrollbar-design::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-design::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3); /* Light thumb */
+  border-radius: 10px;
+}
+
+/* For Firefox */
+.scrollbar-design {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E0 #F7FAFC;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #F7FAFC;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #CBD5E0;
+  border-radius: 3px;
+}
+
+/* FullCalendar Custom Styling to match the image */
+.fc {
+  background: transparent !important;
+}
+
+/* Calendar container background */
+.fc .fc-view-harness {
+  background: #f8f9fa;
+  /* padding: 16px; */
+  border-radius: 12px;
+}
+
+/* Day column styling - make each day look like a separate card */
+.fc .fc-timegrid-col {
+  min-width: 0; /* Allow columns to shrink */
+  flex: 1; /* Make columns expand equally */
+  width: auto; /* Remove fixed width */
+  background: #ffffff !important;
+  margin-right: 8px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb !important;
+  overflow: hidden;
+}
+
+.fc .fc-timegrid-col:last-child {
+  margin-right: 0;
+}
+
+/* Header styling */
+.fc .fc-col-header-cell {
+  min-width: 0;
+  padding: 8px 4px; /* Reduce padding on smaller screens */
+  background: #f9fafb !important;
+  border: none !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Day header text styling */
+.fc .fc-col-header-cell-cushion {
+  font-size: clamp(12px, 2vw, 14px); /* Responsive font size */
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Time slot styling */
+.fc .fc-timegrid-slot {
+  border-top: 1px solid #f3f4f6 !important;
+  height: 40px;
+}
+
+/* Time labels */
+.fc .fc-timegrid-slot-label {
+  min-width: 60px !important; /* Minimum width for time labels */
+  max-width: 120px !important; /* Maximum width for time labels */
+  width: auto;
+  border-right: 1px solid #e5e7eb !important;
+  background: #f9fafb;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* Events styling */
+.fc .fc-event {
+  border: none !important;
+  border-radius: 6px !important;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Remove default borders */
+.fc .fc-timegrid-divider,
+.fc .fc-timegrid-col-frame {
+  border: none !important;
+}
+
+/* Toolbar styling */
+.fc .fc-toolbar {
+  margin-bottom: 20px;
+}
+
+.fc .fc-toolbar-title {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.fc .fc-button-primary {
+  background: #7f4665 !important;
+  border: none !important;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.fc .fc-button-primary:hover {
+  background: #6f3d59 !important;
+}
+
+.fc .fc-button-primary:disabled {
+  background: #d1d5db !important;
+}
+
+/* Now indicator */
+.fc .fc-timegrid-now-indicator-line {
+  border-color: #ef4444;
+  border-width: 2px;
+}
+
+/* Grid lines */
+.fc .fc-timegrid-slot-minor {
+  border-top: none !important;
+}
+
+/* Scrollbar for time grid */
+.fc .fc-scroller {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 transparent;
+}
+
+.fc .fc-scroller::-webkit-scrollbar {
+  width: 4px;
+}
+
+.fc .fc-scroller::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.fc .fc-scroller::-webkit-scrollbar-thumb {
+  background-color: #cbd5e0;
+  border-radius: 2px;
+}
+
+/* Make FullCalendar header taller for custom buttons */
+.fc .fc-toolbar {
+  min-height: 48px;
+  align-items: center;
+  position: relative;
+}
+
+/* Change selection highlight color when dragging to create booking */
+.fc .fc-highlight {
+  background-color: var(--color-primary) !important;
+  opacity: 0.3 !important;
+}
+
+.fc .fc-timegrid .fc-highlight,
+.fc .fc-daygrid .fc-highlight {
+  background-color: var(--color-primary) !important;
+  opacity: 0.3 !important;
+}
+
+/* Change event background color to primary */
+.fc .fc-event {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+/* Ensure event text remains visible */
+.fc .fc-event .fc-event-title,
+.fc .fc-event .fc-event-time {
+  color: white !important;
+}
+
+/* Responsive text in events */
+.fc .fc-event-title,
+.fc .fc-event-time {
+  font-size: clamp(10px, 1.5vw, 12px); /* Responsive font size */
+  line-height: 1.2;
+}
+
+/* Ensure the calendar container is responsive */
+.custom-calendar-width {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Single scrollbar for entire calendar */
+.custom-calendar-width::-webkit-scrollbar {
+  height: 8px;
+}
+
+.custom-calendar-width::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.custom-calendar-width::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+  border: 1px solid #f1f5f9;
+}
+
+.custom-calendar-width::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* For Firefox */
+.custom-calendar-width {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #f1f5f9;
+}
+
+/* Remove individual scrollbars */
+.fc .fc-scroller-harness,
+.fc .fc-timegrid-body,
+.fc .fc-col-header {
+  overflow: visible !important;
+}
+
+.fc {
+  width: 100% !important;
+  min-width: 0;
+  overflow: visible !important;
+}
+
+.fc .fc-view-harness {
+  overflow: visible !important;
+}
+
+/* Column styling */
+.fc .fc-timegrid-col {
+  min-width: 120px !important;
+  flex: 0 0 auto !important;
+  border-top: none !important;
+}
+
+.fc .fc-timegrid-slot-label {
+  min-width: 60px !important;
+  max-width: 80px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .fc .fc-timegrid-col {
+    min-width: 100px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .fc .fc-timegrid-col {
+    min-width: 80px !important;
+  }
+}
+
+/* Hide the default FullCalendar header */
+.fc .fc-col-header {
+  display: none !important;
+}
+
+/* Custom days header styling - remove borders and background */
+.custom-days-header {
+  /* Remove background, border, and shadow */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Remove borders between day cells */
+.custom-days-header .flex > div:not(:first-child) {
+  border-left: none;
+}
+
+/* Remove any default spacing/padding that might create visual separation */
+.custom-days-header .flex > div {
+  border: none;
+  background: transparent;
+}
+
+/* Ensure no borders or backgrounds on individual day cells */
+.custom-days-header .flex > div > div {
+  border: none;
+  background: transparent;
+}
+
+/* Ensure calendar body connects seamlessly with custom header */
+.fc .fc-view-harness {
+  border-radius: 12px;
+  /* border-top: 1px solid #e5e7eb; */
+}
+
+/* Remove top border from calendar since header is separate */
+.fc .fc-timegrid-col:first-child {
+  border-top-left-radius: 0;
+}
+
+.fc .fc-timegrid-col:last-child {
+  border-top-right-radius: 0;
+}
+
+/* Ensure time labels align with custom header */
+.fc .fc-timegrid-slot-label {
+  border-top: none !important;
+}
+
+/* Responsive adjustments for custom header */
+@media (max-width: 768px) {
+  .custom-days-header .flex > div {
+    padding: 8px 4px;
+  }
+  
+  .custom-days-header .text-sm {
+    font-size: 12px;
+  }
+  
+  .custom-days-header .text-xs {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-days-header .flex > div {
+    padding: 6px 2px;
+  }
+  
+  .custom-days-header .text-sm {
+    font-size: 11px;
+  }
+  
+  .custom-days-header .text-xs {
+    font-size: 9px;
+  }
+}
+
+/* Week number styling */
+.custom-days-header .w-16 {
+  border-right: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+/* Ensure week number aligns with time column */
+.custom-days-header .w-16 > div:first-child {
+  line-height: 1;
+}
+
+.custom-days-header .w-16 > div:last-child {
+  line-height: 1;
+  margin-top: 2px;
+  /* font-size: 18px;
+  font-weight: 600; */
+}
+
+/* Responsive adjustments for week number */
+@media (max-width: 768px) {
+  .custom-days-header .w-16 > div:first-child {
+    font-size: 9px;
+  }
+  
+  .custom-days-header .w-16 > div:last-child {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-days-header .w-16 > div:first-child {
+    font-size: 8px;
+  }
+  
+  .custom-days-header .w-16 > div:last-child {
+    font-size: 14px;
+  }
+}
